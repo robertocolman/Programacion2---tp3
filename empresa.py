@@ -49,3 +49,14 @@ class Empresa:
 
     def obtenerEmpleadosHistorico(self):
         return self.empleados
+    
+    def obtenerEmpleadosDeAlta(self):
+        empleados_alta = []
+        for empleado in self.empleados:
+            if empleado.obtenerEstado() == Empleado.ESTADO_ALTA:
+                empleados_alta.append(empleado)
+        return empleados_alta
+
+    def obtenerEmpleadosHistorico(self):
+        return self.empleados
+    

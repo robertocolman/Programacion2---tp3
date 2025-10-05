@@ -1,34 +1,47 @@
 class Empleado:
+    
     ESTADO_ALTA = 1
     ESTADO_BAJA = 2
 
     def __init__(self, nombres, apellidos):
-        self.nombres = nombres
-        self.apellidos = apellidos
+        self.__nombres = nombres
+        self.__apellidos = apellidos
+        self.__estado = Empleado.ESTADO_ALTA
+        self.__numeroLegajo = None
 
-        self.estado = Empleado.ESTADO_ALTA
-        self.numeroLegajo = None
+    def __str__(self):
+        estado_texto = "ALTA" if self.__estado == Empleado.ESTADO_ALTA else "BAJA"
+        legajo = self.__numeroLegajo if self.__numeroLegajo is not None else "SIN ASIGNAR"
+        
+        return "Empleado(Legajo: {}, Nombre: {} {}, Estado: {})".format(
+            legajo, self.__nombres, self.__apellidos, estado_texto
+        )
+        
+    def __eq__(self, otro):
+        if isinstance(otro, Empleado) and self.__numeroLegajo is not None:
+            return self.__numeroLegajo == otro.__numeroLegajo
+        return False
 
     def establecerNumeroLegajo(self, numero):
-        self.numeroLegajo = numero
+        self.__numeroLegajo = numero
 
     def establecerNombres(self, nombres):
-        self.nombres = nombres
+        self.__nombres = nombres
 
     def establecerApellidos(self, apellidos):
-        self.apellidos = apellidos
+        self.__apellidos = apellidos
 
     def establecerEstado(self, estado):
-        self.estado = estado
+        self.__estado = estado
 
     def obtenerNumeroLegajo(self):
-        return self.numeroLegajo
+        return self.__numeroLegajo
 
     def obtenerNombres(self):
-        return self.nombres
+        return self.__nombres
 
     def obtenerApellidos(self):
-        return self.apellidos
+        return self.__apellidos
 
     def obtenerEstado(self):
-        return self.estado
+        return self.__estado
