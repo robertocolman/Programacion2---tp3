@@ -2,72 +2,52 @@ from empresa import Empresa
 from empleado import Empleado
 from producto import Producto
 
-# --- 1. CREACIÓN DE OBJETOS ---
+p1 = Producto("Procesador Intel Celeron G4900 3.10GHz")
+p2 = Producto("Mother Asrock Z390 Phantom Gaming 4S Wi-Fi")
+p3 = Producto("Memoria Team DDR4 8GB 3200Mhz")
+p4 = Producto("Placa de Video MSI GeForce RTX 3050 6GB GDDR6")
+p5 = Producto("Gabinete Antec AX20 ELITE RGB Black Mesh 4x120mm")
+p6 = Producto("Monitor Dahua DHI-LM22-A201Y")
 
-# Crear 2 Productos (serán usados en ambas empresas)
-p1 = Producto("Monitor 4K")
-p2 = Producto("Teclado Mecánico")
-p3 = Producto("Mouse Vertical")
+empresa_a = Empresa("compumundo hiper mega red S.A.")
+empresa_b = Empresa("SoftTech SRL")
 
-# Crear 6 Empleados
-e_juan = Empleado("Juan", "Pérez")
-e_maria = Empleado("María", "Gómez")
-e_carlos = Empleado("Carlos", "López")
-e_ana = Empleado("Ana", "Martínez")
-e_pedro = Empleado("Pedro", "Rodríguez")
-e_laura = Empleado("Laura", "Sánchez")
+e_roberto = Empleado("Colman", "Roberto")
+e_nahuel = Empleado("Nahuel", "Valenzuela")
+e_esteban = Empleado("Esteban", "Chavez")
+e_pedro = Empleado("Pedro", "Gose")
+e_luis = Empleado("Luis", "Cabral")
+e_josefina = Empleado("Josefina", "Cardozo")
 
-
-# --- 2. CREACIÓN DE EMPRESAS ---
-
-# 1. Empresa A: "TecnoSolutions S.A."
-empresa_a = Empresa("TecnoSolutions S.A.")
-
-# Agregar Productos
 empresa_a.agregarProducto(p1)
 empresa_a.agregarProducto(p2)
 
-# Agregar Empleados (se les asignará legajo automáticamente, iniciando en 1)
-empresa_a.altaEmpleado(e_juan)   # Legajo 1
-empresa_a.altaEmpleado(e_maria)  # Legajo 2
-empresa_a.altaEmpleado(e_carlos) # Legajo 3
+empresa_a.altaEmpleado(e_nahuel)
+empresa_a.altaEmpleado(e_luis)
+empresa_a.altaEmpleado(e_josefina)
 
-# 2. Empresa B: "SoftDevelop SRL"
-empresa_b = Empresa("SoftDevelop SRL")
-
-# Agregar Productos
 empresa_b.agregarProducto(p2)
 empresa_b.agregarProducto(p3)
 
-# Agregar Empleados (se les asignará legajo automáticamente, iniciando en 1)
-empresa_b.altaEmpleado(e_ana)    # Legajo 1
-empresa_b.altaEmpleado(e_pedro)  # Legajo 2
-empresa_b.altaEmpleado(e_laura)  # Legajo 3
+empresa_b.altaEmpleado(e_esteban)
+empresa_b.altaEmpleado(e_pedro)
+empresa_b.altaEmpleado(e_roberto)
 
 
-# --- 3. REMOVER 2 EMPLEADOS DE UNA DE ELLAS (Empresa A) ---
+print("--- Ejecutando Bajas en compumundo hiper mega red S.A. ---")
+empresa_a.bajaEmpleado(e_nahuel)
+print(f"-> Empleado {e_nahuel.obtenerNombres()} dado de baja.")
+empresa_a.bajaEmpleado(e_pedro)
+print(f"-> Empleado {e_pedro.obtenerNombres()} dado de baja.")
 
-print("--- Ejecutando Bajas en TecnoSolutions S.A. ---")
-empresa_a.bajaEmpleado(e_juan)
-print(f"-> Empleado {e_juan.obtenerNombres()} dado de baja.") # Juan (Legajo 1)
-empresa_a.bajaEmpleado(e_maria)
-print(f"-> Empleado {e_maria.obtenerNombres()} dado de baja.") # María (Legajo 2)
-
-# Carlos (Legajo 3) se mantiene en estado de ALTA.
 print("\n")
 
+print("# # # # # # # # # # # # # # # # # # # # # # # # # # # #")
+print("  ♦ ♦ ♦ INFORME DETALLADO DE ESTADO DE EMPRESAS ♦ ♦ ♦  ")
+print("# # # # # # # # # # # # # # # # # # # # # # # # # # # #")
 
-# --- 4. IMPRIMIR INFORMACIÓN DE CADA EMPRESA (Usando __str__) ---
-
-print("================================================")
-print("             REPORTE FINAL DE EMPRESAS            ")
-print("================================================")
-
-# Se utiliza automáticamente el método __str__() al usar print() sobre el objeto
 print(empresa_a)
 
-print("\n------------------------------------------------")
-
+print("\n# # # # # # # # # # # # # # # # # # # # # # # # # # # #")
 print(empresa_b)
-
-print("================================================")
+print("# # # # # # # # # # # # # # # # # # # # # # # # # # # #")
